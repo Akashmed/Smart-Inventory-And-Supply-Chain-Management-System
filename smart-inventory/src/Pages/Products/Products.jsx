@@ -22,8 +22,7 @@ const Products = () => {
   )
 
   return (
-    <div className="space-y-8 animate-fadeIn">
-      {/* Header */}
+    <div className="space-y-8 my-12 mx-auto max-w-7xl animate-fadeIn">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h1 className="text-3xl font-extrabold bg-gradient-to-r from-teal-600 to-purple-600 bg-clip-text text-transparent">
           Products
@@ -34,7 +33,6 @@ const Products = () => {
         </button>
       </div>
 
-      {/* Search Bar */}
       <div className="relative group">
         <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-teal-500 transition-colors h-4 w-4" />
         <input
@@ -45,8 +43,6 @@ const Products = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-
-      {/* Products Table */}
       <div className="rounded-2xl bg-white/80 backdrop-blur-md shadow-lg overflow-hidden border border-gray-100">
         <div className="overflow-x-auto">
           <table className="min-w-full">

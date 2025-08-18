@@ -41,8 +41,7 @@ const Suppliers = () => {
   ]
 
   return (
-    <div className="space-y-8">
-      {/* Header */}
+    <div className="space-y-8 mx-auto max-w-7xl my-12">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h1 className="text-3xl font-extrabold bg-gradient-to-r bg-teal-600  bg-clip-text text-transparent">
           Suppliers
@@ -53,14 +52,12 @@ const Suppliers = () => {
         </button>
       </div>
 
-      {/* Suppliers Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {suppliers.map((supplier) => (
           <div
             key={supplier.id}
             className="relative p-6 rounded-2xl bg-white/80 backdrop-blur-xl border border-gray-200 shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
           >
-            {/* Header */}
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-semibold text-gray-900">{supplier.name}</h3>
               <div className="flex space-x-2">
@@ -72,8 +69,6 @@ const Suppliers = () => {
                 </button>
               </div>
             </div>
-
-            {/* Info */}
             <div className="space-y-3 text-sm text-gray-700">
               <p>{supplier.address}</p>
 
@@ -87,8 +82,6 @@ const Suppliers = () => {
                 {supplier.email}
               </div>
             </div>
-
-            {/* Stats */}
             <div className="mt-6 grid grid-cols-2 gap-4">
               <div className="text-center bg-gradient-to-r from-teal-50 to-indigo-50 rounded-xl py-3">
                 <p className="text-3xl font-bold text-teal-600">{supplier.products}</p>

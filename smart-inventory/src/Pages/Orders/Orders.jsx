@@ -24,7 +24,7 @@ const Orders = () => {
   }
 
   return (
-    <div className="space-y-8 p-6 bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen">
+    <div className="space-y-8 p-6 mx-auto max-w-7xl my-12 bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h1 className="text-3xl font-extrabold bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent drop-shadow-sm">

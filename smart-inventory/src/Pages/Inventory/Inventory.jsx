@@ -20,8 +20,7 @@ const Inventory = () => {
   ]
 
   return (
-    <div className="space-y-8 p-6 bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen">
-      {/* Header */}
+    <div className="space-y-8 mx-auto max-w-7xl my-12 p-6 bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h1 className="text-3xl font-extrabold bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent drop-shadow-sm">
           Inventory Management
@@ -34,7 +33,6 @@ const Inventory = () => {
         </button>
       </div>
 
-      {/* Tabs */}
       <div className="border-b border-gray-200">
         <nav className="flex space-x-8">
           {[
@@ -60,7 +58,6 @@ const Inventory = () => {
         </nav>
       </div>
 
-      {/* Inventory Logs */}
       {activeTab === "logs" && (
         <div className="bg-white shadow-xl rounded-2xl p-4 overflow-hidden border border-gray-100">
           <div className="overflow-x-auto">
@@ -107,8 +104,6 @@ const Inventory = () => {
           </div>
         </div>
       )}
-
-      {/* Low Stock Alerts */}
       {activeTab === "alerts" && (
         <div className="grid sm:grid-cols-2 gap-6">
           {lowStockItems.map((item, index) => {
@@ -133,7 +128,6 @@ const Inventory = () => {
                   </div>
                 </div>
 
-                {/* Progress Bar */}
                 <div className="mt-4">
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
@@ -144,7 +138,6 @@ const Inventory = () => {
                   <p className="mt-1 text-xs text-gray-500">{percentage}% of threshold</p>
                 </div>
 
-                {/* Actions */}
                 <div className="mt-4 flex space-x-2">
                   <button className="flex-1 px-3 py-2 bg-gradient-to-r from-teal-500 to-teal-700 text-white text-sm font-medium rounded-lg shadow-md hover:from-teal-600 hover:to-teal-800">
                     Reorder
