@@ -12,7 +12,7 @@ FROM products p
 JOIN suppliers s
     ON p.supplier_id = s.supplier_id;
 
--- Test the view
+-- Test the  view
 SELECT * FROM product_supplier_view;
 
 
