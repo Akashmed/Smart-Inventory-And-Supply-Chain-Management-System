@@ -1,6 +1,14 @@
+import toast, { Toaster } from "react-hot-toast"
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaClock, FaHeadset } from "react-icons/fa"
 
 const Contact = () => {
+
+  const handleSubmit = e =>{
+    e.preventDefault();
+    toast.success("Message sent successfully!");
+    console.log("toasting");
+  }
+  
   const contactInfo = [
     {
       icon: FaPhone,
@@ -139,6 +147,7 @@ const Contact = () => {
                 </div>
 
                 <button
+                  onClick={handleSubmit}
                   type="submit"
                   className="w-full bg-teal-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 group"
                 >
