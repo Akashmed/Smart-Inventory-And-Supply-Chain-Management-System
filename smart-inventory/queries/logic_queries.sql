@@ -83,6 +83,8 @@ BEGIN
 END;
 /
 
+-- Exec receive_shipment(1, 3, 100, 2);
+
 
 -- 5. Trigger: Update Stock After New Order
 CREATE OR REPLACE TRIGGER create_shipment_after_order

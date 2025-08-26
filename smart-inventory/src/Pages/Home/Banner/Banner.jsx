@@ -16,12 +16,16 @@ const Banner = () => {
             supplier management.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-           <Link to="/products">
+           <Link 
+          //  to="/products"
+           >
             <button className="bg-white text-teal-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
               View Products
             </button>
            </Link>
-            <Link to="/orders">
+            <Link 
+            // to="/orders"
+            >
             <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-teal-600 transition duration-300">
               Manage Orders
             </button>

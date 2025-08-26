@@ -25,12 +25,12 @@ const Inventory = () => {
         <h1 className="text-3xl font-extrabold bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent drop-shadow-sm">
           Inventory Management
         </h1>
-        <button className="flex items-center px-5 py-2.5 rounded-xl text-white font-medium shadow-lg 
+        {/* <button className="flex items-center px-5 py-2.5 rounded-xl text-white font-medium shadow-lg 
           bg-gradient-to-r from-teal-500 to-teal-700 hover:from-teal-600 hover:to-teal-800 
           transition transform hover:scale-105">
           <FaPlus className="mr-2 h-4 w-4" />
           Add Inventory Log
-        </button>
+        </button> */}
       </div>
 
       <div className="border-b border-gray-200">
