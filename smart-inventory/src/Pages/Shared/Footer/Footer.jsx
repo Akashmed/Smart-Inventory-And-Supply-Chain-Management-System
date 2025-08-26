@@ -25,7 +25,7 @@ const Footer = () => {
 
         <div>
           <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-          <p className="flex items-center mb-2"><FaPhone className="mr-2"/> +1 (555) 123-4567</p>
+          <p className="flex items-center mb-2"><FaPhone className="mr-2"/> +1 (556) 123-4567</p>
           <p className="flex items-center mb-4"><FaEnvelope className="mr-2"/> contact@smartinventory.com</p>
           <div className="flex space-x-4">
             <a href="#" className="hover:text-gray-200"><FaFacebookF /></a>
