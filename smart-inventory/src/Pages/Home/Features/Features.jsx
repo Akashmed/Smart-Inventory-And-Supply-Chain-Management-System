@@ -1,4 +1,5 @@
 import { FaBox, FaChartLine, FaUsers, FaClipboardList, FaChartBar, FaExclamationTriangle } from "react-icons/fa"
+import { Link } from "react-router-dom"
 
 const Features = () => {
   const features = [
@@ -91,10 +92,10 @@ const Features = () => {
         </div>
 
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-teal-700 transition-colors cursor-pointer shadow-lg hover:shadow-xl">
+          <Link to="/inventory" className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-teal-700 transition-colors cursor-pointer shadow-lg hover:shadow-xl">
             <FaBox className="w-5 h-5" />
             <span>Start Managing Your Inventory</span>
-          </div>
+          </Link>
         </div>
       </div>
     </section>
