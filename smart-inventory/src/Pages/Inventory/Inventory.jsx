@@ -13,9 +13,9 @@ const Inventory = () => {
   ]
 
   const lowStockItems = [
-    { name: "Wireless Mouse", current: 5, threshold: 20, supplier: "TechCorp" },
+    { name: "Wireless Mouse", current: 5, threshold: 20, supplier: "Global tech" },
     { name: "Keyboard", current: 8, threshold: 25, supplier: "TechCorp" },
-    { name: "Monitor Stand", current: 3, threshold: 15, supplier: "AccessoryPlus" },
+    { name: "Monitor Stand", current: 3, threshold: 15, supplier: "Estern traders" },
     { name: "Webcam", current: 12, threshold: 30, supplier: "TechCorp" },
   ]
 
