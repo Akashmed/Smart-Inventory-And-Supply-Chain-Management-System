@@ -12,9 +12,9 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/", icon: <FaHome /> },
     { name: "Inventory", path: "/inventory", icon: <FaWarehouse /> },
-    // { name: "Suppliers", path: "/suppliers", icon: <FaUsers /> },
-    // { name: "Products", path: "/products", icon: <FaBox /> },
-    // { name: "Orders", path: "/orders", icon: <FaShoppingCart /> },
+    { name: "Suppliers", path: "/suppliers", icon: <FaUsers /> },
+    { name: "Products", path: "/products", icon: <FaBox /> },
+    { name: "Orders", path: "/orders", icon: <FaShoppingCart /> },
   ];
 
 

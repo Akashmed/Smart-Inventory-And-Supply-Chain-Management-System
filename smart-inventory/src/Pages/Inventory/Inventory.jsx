@@ -1,23 +1,76 @@
-import { useState } from "react"
-import { FaPlus, FaMinus, FaHistory, FaExclamationTriangle } from "react-icons/fa"
+import { useState } from "react";
+import {
+  FaPlus,
+  FaMinus,
+  FaHistory,
+  FaExclamationTriangle,
+  FaSearch,
+} from "react-icons/fa";
 
 const Inventory = () => {
-  const [activeTab, setActiveTab] = useState("logs")
+  const [activeTab, setActiveTab] = useState("logs");
+  const [search, setSearch] = useState("");
 
   const inventoryLogs = [
-    { id: 1, product: "Wireless Headphones", type: "inbound", quantity: 100, date: "2024-01-15", remarks: "New stock arrival" },
-    { id: 2, product: "Smartphone Cases", type: "outbound", quantity: 50, date: "2024-01-14", remarks: "Order fulfillment" },
-    { id: 3, product: "USB Cables", type: "inbound", quantity: 200, date: "2024-01-13", remarks: "Bulk purchase" },
-    { id: 4, product: "Power Banks", type: "outbound", quantity: 25, date: "2024-01-12", remarks: "Customer order" },
-    { id: 5, product: "Wireless Mouse", type: "inbound", quantity: 50, date: "2024-01-11", remarks: "Restocking" },
-  ]
+    {
+      id: 1,
+      product: "Wireless Headphones",
+      type: "inbound",
+      quantity: 100,
+      date: "2024-01-15",
+      remarks: "New stock arrival",
+    },
+    {
+      id: 2,
+      product: "Smartphone Cases",
+      type: "outbound",
+      quantity: 50,
+      date: "2024-01-14",
+      remarks: "Order fulfillment",
+    },
+    {
+      id: 3,
+      product: "USB Cables",
+      type: "inbound",
+      quantity: 200,
+      date: "2024-01-13",
+      remarks: "Bulk purchase",
+    },
+    {
+      id: 4,
+      product: "Power Banks",
+      type: "outbound",
+      quantity: 25,
+      date: "2024-01-12",
+      remarks: "Customer order",
+    },
+    {
+      id: 5,
+      product: "Wireless Mouse",
+      type: "inbound",
+      quantity: 50,
+      date: "2024-01-11",
+      remarks: "Restocking",
+    },
+  ];
 
   const lowStockItems = [
     { name: "Wireless Mouse", current: 5, threshold: 20, supplier: "Global tech" },
     { name: "Keyboard", current: 8, threshold: 25, supplier: "TechCorp" },
-    { name: "Monitor Stand", current: 3, threshold: 15, supplier: "Estern traders" },
+    {
+      name: "Monitor Stand",
+      current: 3,
+      threshold: 15,
+      supplier: "AccessoryPlus",
+    },
     { name: "Webcam", current: 12, threshold: 30, supplier: "TechCorp" },
-  ]
+  ];
+
+  const filteredLogs = inventoryLogs.filter(
+    (log) =>
+      log.product.toLowerCase().includes(search.toLowerCase()) ||
+      log.remarks.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="space-y-8 mx-auto max-w-7xl my-12 p-6 bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen">
@@ -25,19 +78,21 @@ const Inventory = () => {
         <h1 className="text-3xl font-extrabold bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent drop-shadow-sm">
           Inventory Management
         </h1>
-        {/* <button className="flex items-center px-5 py-2.5 rounded-xl text-white font-medium shadow-lg 
-          bg-gradient-to-r from-teal-500 to-teal-700 hover:from-teal-600 hover:to-teal-800 
-          transition transform hover:scale-105">
-          <FaPlus className="mr-2 h-4 w-4" />
-          Add Inventory Log
-        </button> */}
       </div>
 
       <div className="border-b border-gray-200">
         <nav className="flex space-x-8">
           {[
-            { key: "logs", label: "Inventory Logs", icon: <FaHistory className="inline mr-2 h-4 w-4" /> },
-            { key: "alerts", label: "Low Stock Alerts", icon: <FaExclamationTriangle className="inline mr-2 h-4 w-4" /> },
+            {
+              key: "logs",
+              label: "Inventory Logs",
+              icon: <FaHistory className="inline mr-2 h-4 w-4" />,
+            },
+            {
+              key: "alerts",
+              label: "Low Stock Alerts",
+              icon: <FaExclamationTriangle className="inline mr-2 h-4 w-4" />,
+            },
           ].map((tab) => (
             <button
               key={tab.key}
@@ -60,24 +115,41 @@ const Inventory = () => {
 
       {activeTab === "logs" && (
         <div className="bg-white shadow-xl rounded-2xl p-4 overflow-hidden border border-gray-100">
+          <div className="flex justify-center mb-6">
+            <div className="relative w-full max-w-md">
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search inventory..."
+                className="w-full pl-10 pr-4 py-2 rounded-full border border-teal-300 shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition outline-none"
+              />
+              <FaSearch className="absolute left-3 top-2.5 text-gray-400" />
+            </div>
+          </div>
+
           <div className="overflow-x-auto">
             <table className="min-w-full text-sm">
               <thead className="bg-gradient-to-r from-teal-50 to-white">
                 <tr>
-                  {["Product", "Type", "Quantity", "Date", "Remarks"].map((head) => (
-                    <th key={head} className="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                      {head}
-                    </th>
-                  ))}
+                  {["Product", "Type", "Quantity", "Date", "Remarks"].map(
+                    (head) => (
+                      <th
+                        key={head}
+                        className="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
+                      >
+                        {head}
+                      </th>
+                    )
+                  )}
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
-                {inventoryLogs.map((log) => (
-                  <tr
-                    key={log.id}
-                    className="hover:bg-teal-50/40 transition"
-                  >
-                    <td className="px-6 py-4 font-medium text-gray-900">{log.product}</td>
+                {filteredLogs.map((log) => (
+                  <tr key={log.id} className="hover:bg-teal-50/40 transition">
+                    <td className="px-6 py-4 font-medium text-gray-900">
+                      {log.product}
+                    </td>
                     <td className="px-6 py-4">
                       <span
                         className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold shadow-sm ${
@@ -107,7 +179,9 @@ const Inventory = () => {
       {activeTab === "alerts" && (
         <div className="grid sm:grid-cols-2 gap-6">
           {lowStockItems.map((item, index) => {
-            const percentage = Math.round((item.current / item.threshold) * 100)
+            const percentage = Math.round(
+              (item.current / item.threshold) * 100
+            );
             return (
               <div
                 key={index}
@@ -117,25 +191,37 @@ const Inventory = () => {
                   <div className="flex items-center">
                     <FaExclamationTriangle className="h-6 w-6 text-teal-600 mr-3" />
                     <div>
-                      <h3 className="font-semibold text-gray-900">{item.name}</h3>
-                      <p className="text-sm text-gray-500">Supplier: {item.supplier}</p>
+                      <h3 className="font-semibold text-gray-900">
+                        {item.name}
+                      </h3>
+                      <p className="text-sm text-gray-500">
+                        Supplier: {item.supplier}
+                      </p>
                     </div>
                   </div>
                   <div className="text-right">
                     <p className="text-sm text-gray-500">Current Stock</p>
-                    <p className="text-2xl font-extrabold text-teal-600">{item.current}</p>
-                    <p className="text-xs text-gray-400">Threshold: {item.threshold}</p>
+                    <p className="text-2xl font-extrabold text-teal-600">
+                      {item.current}
+                    </p>
+                    <p className="text-xs text-gray-400">
+                      Threshold: {item.threshold}
+                    </p>
                   </div>
                 </div>
 
                 <div className="mt-4">
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
-                      className={`h-2 rounded-full ${percentage < 50 ? "bg-red-500" : "bg-teal-500"}`}
+                      className={`h-2 rounded-full ${
+                        percentage < 50 ? "bg-red-500" : "bg-teal-500"
+                      }`}
                       style={{ width: `${percentage}%` }}
                     ></div>
                   </div>
-                  <p className="mt-1 text-xs text-gray-500">{percentage}% of threshold</p>
+                  <p className="mt-1 text-xs text-gray-500">
+                    {percentage}% of threshold
+                  </p>
                 </div>
 
                 <div className="mt-4 flex space-x-2">
@@ -147,12 +233,12 @@ const Inventory = () => {
                   </button>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Inventory
+export default Inventory;

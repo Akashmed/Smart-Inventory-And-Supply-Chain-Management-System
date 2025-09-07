@@ -1,4 +1,3 @@
-"use client"
 
 import { useState } from "react"
 import { FaPlus, FaEye, FaFilter } from "react-icons/fa"
