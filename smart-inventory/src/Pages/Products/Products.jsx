@@ -5,6 +5,11 @@ import { FaPlus, FaEdit, FaTrash, FaSearch, FaTimes } from "react-icons/fa"
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("")
   const [products, setProducts] = useState([
+    //     {"product_id":1,"name":"Laptop","category":"Dell i5 10th Gen","price":80000,"stock":25,"supplier_id":1}
+    // ,{"product_id":2,"name":"Mouse","category":"Wireless Mouse","price":1200,"stock":100,"supplier_id":2}
+    // ,{"product_id":3,"name":"Keyboard","category":"Mechanical Keyboard","price":3500,"stock":60,"supplier_id":1}
+
+
     { id: 1, name: "Wireless Headphones", stock: 150, price: 99.99, supplier: "TechCorp", category: "Electronics" },
     { id: 2, name: "Smartphone Cases", stock: 300, price: 24.99, supplier: "AccessoryPlus", category: "Accessories" },
     { id: 3, name: "USB Cables", stock: 500, price: 12.99, supplier: "CableTech", category: "Cables" },
@@ -94,13 +99,12 @@ const Products = () => {
                   <td className="px-6 py-4 font-medium text-gray-900">{product.name}</td>
                   <td className="px-6 py-4">
                     <span
-                      className={`px-3 py-1.5 rounded-full text-xs font-bold shadow-sm ${
-                        product.stock < 20
+                      className={`px-3 py-1.5 rounded-full text-xs font-bold shadow-sm ${product.stock < 20
                           ? "bg-red-100 text-red-700"
                           : product.stock < 50
-                          ? "bg-yellow-100 text-yellow-700"
-                          : "bg-green-100 text-green-700"
-                      }`}
+                            ? "bg-yellow-100 text-yellow-700"
+                            : "bg-green-100 text-green-700"
+                        }`}
                     >
                       {product.stock}
                     </span>
